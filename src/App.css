@@ -1,3 +1,5 @@
+/* App.css - TARJETAS CON COLOR ORIGINAL Y PDF ESTABLE */
+
 :root {
   --onedata-bright-blue: #3533cd;
   --onedata-dark-blue: #000;
@@ -9,309 +11,158 @@
   color-scheme: light dark;
   color: #000;
   background-color: #ffffff;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body { margin: 0; min-width: 320px; min-height: 100vh; }
 h1, h2, h3, h4 { margin: 0; }
 
-/* =========================================
-   CLASES GENERALES
-   ========================================= */
+/* Control de Visibilidad Global */
 .no-print { display: block; }
 .print-only-flex { display: none !important; }
 .print-only-block { display: none !important; }
 
 /* =========================================
-   ESTILOS DE CUESTIONARIO (TARJETAS CON COLOR)
+   CUESTIONARIO (TARJETAS)
    ========================================= */
 .question-text { animation: fadeIn 0.4s ease-out; }
 
 .options-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.5rem;
-  max-width: 1600px;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;
+  gap: 1.5rem; max-width: 1600px; width: 100%; padding: 0 1rem; box-sizing: border-box;
   animation: fadeIn 0.5s ease-out;
 }
 
 .option-card {
-  flex: 1 1 220px; 
-  max-width: 280px; 
-  background-color: var(--card-bg); 
-  border: 3px solid var(--card-border);
-  
-  border-radius: 20px;
-  padding: 2.2rem 2.2rem;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  min-height: 220px;
+  flex: 1 1 220px; max-width: 280px; background-color: var(--card-bg); border: 3px solid var(--card-border);
+  border-radius: 20px; padding: 2.2rem 2.2rem; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); min-height: 220px;
 }
 
-.option-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--card-highlight);
-  box-shadow: 0 20px 25px -5px var(--card-glow);
-}
-
-.option-card.selected {
-  background-color: #fff;
-  border-color: var(--card-highlight);
-  box-shadow: 0 20px 25px -5px var(--card-glow);
-}
+.option-card:hover { transform: translateY(-5px); border-color: var(--card-highlight); box-shadow: 0 20px 25px -5px var(--card-glow); }
+.option-card.selected { background-color: #fff; border-color: var(--card-highlight); box-shadow: 0 20px 25px -5px var(--card-glow); }
 
 .option-label {
-  position: absolute;
-  bottom: 1.8rem;
-  right: 1.8rem;
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #fff;
-  background-color: var(--card-highlight);
-  padding: 5px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  position: absolute; bottom: 1.8rem; right: 1.8rem; font-size: 0.8rem; font-weight: 800; color: #fff;
+  background-color: var(--card-highlight); padding: 5px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;
 }
-
 .option-desc { max-width: 90%; }
 
 /* =========================================
-   ESTILOS DEL DASHBOARD DE RESULTADOS
+   DASHBOARD WEB (VISTA EN PANTALLA PERFECTA)
    ========================================= */
-.results-columns {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+.results-columns { display: flex; flex-direction: column; gap: 2rem; width: 100%; }
+.results-main { flex: 1 1 100% !important; }
+
+/* Header Web con el Círculo SVG */
+.evaluation-header {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 2rem; background: #f8fafc;
+  border-radius: 16px; margin-bottom: 2rem; align-items: center; border: 1px solid #e5e7eb;
 }
+.evaluation-info { flex: 1; min-width: 180px; }
+.evaluation-score { flex: 0 0 160px; text-align: center; border-left: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; padding: 0 1rem; }
+.evaluation-focus { flex: 1; min-width: 180px; padding-left: 0.5rem; }
 
-.results-sidebar {
-  flex: 1 1 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.results-main { flex: 3 1 600px; }
-
-.score-gauge-container {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-}
-
-.circular-chart {
-  display: block;
-  margin: 10px auto;
-  max-width: 100%;
-  max-height: 250px;
-}
-
+.score-gauge-container { position: relative; width: 150px; height: 150px; margin: 0 auto; }
+.circular-chart { display: block; margin: 10px auto; max-width: 100%; }
 .circle-bg { fill: none; stroke: #edf2f7; stroke-width: 3; }
-.circle { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
-
-.score-text-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+.circle { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 1.2s ease-in-out; }
+.score-text-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
 
 .classification-card {
   background: linear-gradient(135deg, rgba(255, 153, 0, 0.07) 0%, rgba(255, 153, 0, 0.02) 100%);
-  border: 2px solid rgba(255, 153, 0, 0.1);
-  padding: 1.5rem;
-  border-radius: 16px;
-  text-align: center;
+  border: 2px solid rgba(255, 153, 0, 0.1); padding: 1.5rem; border-radius: 16px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;
 }
 
-.dimensions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.2rem;
-}
+/* Barras Animadas de la Web */
+.dimensions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+.dimension-card { background: #ffffff; border: 1px solid #edf2f7; padding: 1.2rem; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); }
+.dimension-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.progress-bar-modern { height: 100%; background: linear-gradient(90deg, #3533cd 0%, #00d4ff 100%); border-radius: 4px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
 
-.dimension-card {
-  background: #ffffff;
-  border: 1px solid #edf2f7;
-  padding: 1.2rem;
-  border-radius: 16px;
-  transition: 0.2s;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.01);
-}
+/* Enlaces Web */
+a.print-link { color: var(--onedata-bright-blue); text-decoration: none; font-weight: bold; }
+a.print-link:hover { text-decoration: underline; }
 
-.dimension-card:hover {
-  border-color: #edf2f7;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-}
-
-.dimension-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.progress-bar-modern {
-  height: 100%;
-  background: linear-gradient(90deg, #3533cd 0%, #00d4ff 100%);
-  border-radius: 4px;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* =========================================
-   ESTILOS PARA PDF
+   🖨️ EL PDF (EL DESTRUCTOR DE BUGS DE GOOGLE)
    ========================================= */
 @media print {
+  @page { size: auto; margin: 12mm 15mm; }
 
-  @page {
-    size: A4;
-    margin: 20mm;
+  /* 1. MATA LAS ANIMACIONES Y ASEGURA QUE TODO SEA ESTÁTICO (VITAL PARA LINKS) */
+  * { 
+    transition: none !important; 
+    animation: none !important; 
+    transform: none !important; 
+    box-sizing: border-box !important;
+  }
+  
+  html, body { 
+    background: #ffffff !important; 
+    -webkit-print-color-adjust: exact !important; 
+    print-color-adjust: exact !important; 
+    position: static !important; 
   }
 
-  html, body {
-    height: auto !important;
-    min-height: 0 !important;
-    background: #ffffff !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  .print-only-flex {
-    display: flex !important;
-  }
-
-  .print-only-block {
-    display: block !important;
-  }
-
+  /* 2. REVIENTA EL CONTENEDOR PADRE QUE CAUSABA EL BUG DE LOS ENLACES */
   .results-page-wrapper {
-    padding: 0 !important;
-    background: #ffffff !important;
-    display: block !important;
+    background: none !important; padding: 0 !important; margin: 0 !important; display: block !important; position: static !important;
   }
-
   .results-main-card {
-    box-shadow: none !important;
-    border: none !important;
-    border-radius: 0 !important;
-    margin: 0 auto !important;
-    max-width: 100% !important;
-    width: 100% !important;
+    box-shadow: none !important; border: none !important; border-radius: 0 !important; margin: 0 !important; padding: 0 !important; display: block !important; position: static !important;
   }
 
+  /* Controles de visibilidad para imprimir PDF */
+  .no-print { display: none !important; }
+  .print-only-flex { display: flex !important; }
+  .print-only-block { display: block !important; }
+
+  /* 3. LOGOS PERFECTOS PARA HUMBERTO */
   .print-logos-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    border-bottom: 2px solid #edf2f7 !important;
-    padding-bottom: 1rem !important;
-    margin-bottom: 1.5rem !important;
+    display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important;
+    border-bottom: 2px solid #edf2f7 !important; padding-bottom: 15px !important; margin-bottom: 20px !important; width: 100% !important;
   }
+  .print-cluster-logo { height: 48px !important; object-fit: contain; }
+  .print-onedata-logo { height: 27px !important; object-fit: contain; }
+  .print-aws-logo { height: 27px !important; object-fit: contain; }
 
-  .print-cluster-logo {
-    height: 45px !important;
-    object-fit: contain;
+  /* 4. CABECERA TIPO TABLA (ADIÓS CÍRCULO) */
+  .pdf-header-grid {
+    display: grid !important; grid-template-columns: 1fr 1.2fr !important; gap: 20px !important; align-items: center !important; width: 100% !important; margin-bottom: 20px !important;
   }
+  .pdf-user-col { padding-right: 10px !important; border-right: 2px solid #edf2f7 !important; word-wrap: break-word !important; }
+  .pdf-label { margin: 0 0 5px 0 !important; font-size: 10px !important; color: #64748b !important; text-transform: uppercase !important; font-weight: bold !important; letter-spacing: 1px !important; }
+  .pdf-name { margin: 0 0 5px 0 !important; font-size: 18px !important; color: #000 !important; line-height: 1.1 !important; }
+  .pdf-role { font-weight: normal !important; color: #808080 !important; font-size: 14px !important; }
+  .pdf-org { margin: 0 !important; font-size: 12px !important; color: #4a5568 !important; }
 
-  .print-onedata-logo,
-  .print-aws-logo {
-    height: 30px !important;
-    object-fit: contain;
+  .pdf-score-banner {
+    display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important;
+    background: #f8fafc !important; padding: 15px !important; border: 1px solid #e2e8f0 !important;
+    border-left-width: 6px !important; border-left-style: solid !important; border-radius: 8px !important; width: 100% !important;
   }
+  .pdf-sb-left { flex: 0 0 auto !important; padding-right: 15px !important; }
+  .pdf-score-wrapper { display: flex !important; align-items: baseline !important; gap: 4px !important; margin-top: 4px !important; }
+  .pdf-big-score { font-size: 28px !important; font-weight: 900 !important; line-height: 1 !important; }
+  .pdf-small-score { font-size: 14px !important; color: #a0aec0 !important; font-weight: bold !important; }
+  .pdf-sb-right { flex: 1 !important; text-align: right !important; word-wrap: break-word !important; }
+  .pdf-level { margin: 0 0 4px 0 !important; font-size: 15px !important; text-transform: uppercase !important; line-height: 1.1 !important; }
+  .pdf-focus { margin: 0 !important; font-size: 11px !important; color: #2d3748 !important; line-height: 1.3 !important; }
 
-  .pdf-header-row {
-    display: flex !important;
-    justify-content: space-between !important;
-    gap: 1.5rem !important;
-    margin-bottom: 2rem !important;
-  }
+  /* 5. 2 COLUMNAS ESTRICTAS PARA DIMENSIONES EN PDF */
+  .dimensions-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 15px !important; width: 100% !important; }
+  .dimension-card { border: 1.5px solid #eee !important; padding: 12px !important; border-radius: 12px !important; page-break-inside: avoid !important; box-shadow: none !important; }
+  .dimension-header h3 { font-size: 14px !important; }
+  .dimension-header span { font-size: 12px !important; }
 
-  .pdf-col {
-    flex: 1 !important;
-  }
+  /* 6. PLAN DE ACCIÓN Y EVITAR CORTES */
+  .action-plan-section { margin-top: 30px !important; page-break-before: auto !important; }
+  .print-avoid-break { page-break-inside: avoid !important; break-inside: avoid !important; display: block !important; }
+  .print-cta-block { page-break-inside: avoid !important; break-inside: avoid !important; display: inline-block !important; width: 100% !important; margin-top: 15px !important; }
 
-  .results-columns {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-
-  .dimensions-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-  }
-
-  .dimension-card,
-  .classification-card,
-  .action-plan-section,
-  li {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  .dimension-card {
-    box-shadow: none !important;
-    border: 1px solid #edf2f7 !important;
-    padding: 1rem !important;
-  }
-
-  .classification-card {
-    box-shadow: none !important;
-  }
-
-  .score-gauge-container {
-    width: 120px !important;
-    height: 120px !important;
-    margin: 0 auto !important;
-  }
-
-  .progress-bar-modern {
-    transition: none !important;
-  }
-
-  svg {
-    animation: none !important;
-  }
-
-  .print-cta-btn {
-    display: inline-block !important;
-    padding: 10px 24px !important;
-    background-color: #ff9900 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-  }
-
+  /* 7. LINKS VIVOS, GARANTIZADOS */
+  a.print-link { color: #3533cd !important; text-decoration: underline !important; font-weight: bold !important; cursor: pointer !important; position: static !important; }
+  .print-cta-btn { display: inline-block !important; padding: 10px 24px !important; background-color: #ff9900 !important; color: #ffffff !important; text-decoration: none !important; border-radius: 8px !important; font-weight: bold !important; }
 }

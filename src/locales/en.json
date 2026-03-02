@@ -45,44 +45,64 @@
   "pdfCtaTitle": "Empower your future with Artificial Intelligence",
   "pdfCta": "Learn how we can help you scale these initiatives. Contact us:",
   "btnContact": "contact@onedatasoftware.com",
-  "res": {
-    "exploring": { 
-      "id": "exploring",
-      "class": "🔍 EXPLORING", 
-      "action": "Education and Enablement", 
-      "desc": "Your organization is in an initial exploration stage. The immediate focus should be on AI literacy, aligning business leaders, and creating a secure framework for technological experimentation.",
-      "rec1Title": "AWS Well Architected Framework:", "rec1Desc": "We evaluate your current infrastructure to ensure it is built on solid, scalable, and cost-effective foundations.", "rec1Link": "https://offerings.onedatasoftware.com/aws-well-architected-framework/",
-      "rec2Title": "Migration strategy:", "rec2Desc": "We design a secure cloud migration plan to modernize your legacy applications.", "rec2Link": "https://offerings.onedatasoftware.com/aws-data-migration/",
-      "rec3Title": "Cloud security:", "rec3Desc": "We implement the necessary controls so that your cloud environment is completely secure from day one.", "rec3Link": "https://offerings.onedatasoftware.com/aws-security/"
-    },
-    "adopting": { 
-      "id": "adopting",
-      "class": "🚀 ADOPTING", 
-      "action": "Guided Implementation", 
-      "desc": "You have taken solid steps toward AI adoption. The goal now is to structure these isolated initiatives through a well-defined proof of concept (POC), establishing clear KPIs and solid data governance foundations.",
-      "rec1Title": "Data Analytics:", "rec1Desc": "We structure your data ecosystems so they are ready to be consumed by Artificial Intelligence models.", "rec1Link": "https://offerings.onedatasoftware.com/aws-data-analytics/",
-      "rec2Title": "Gen AI Small Business:", "rec2Desc": "We build an agile Proof of Concept (POC) focused on a specific use case to demonstrate short-term value.", "rec2Link": "https://offerings.onedatasoftware.com/aws-generative-ai-services/",
-      "rec3Title": "Compliances and Regulatory:", "rec3Desc": "We ensure your initial AI initiatives comply with all industry regulations and security policies.", "rec3Link": "https://offerings.onedatasoftware.com/aws-hipaa/"
-    },
-    "implementing": { 
-      "id": "implementing",
-      "class": "⚙️ IMPLEMENTING", 
-      "action": "Optimization and Scaling", 
-      "desc": "You have a prominent maturity level with running solutions. The strategic priority is to scale these tools, integrate MLOps/LLMOps practices, and expand enablement to multiple enterprise areas.",
-      "rec1Title": "AWS Generative AI:", "rec1Desc": "We scale and deeply integrate Generative AI into your key applications and workflows.", "rec1Link": "https://offerings.onedatasoftware.com/aws-generative-ai-services/",
-      "rec2Title": "Machine Learning:", "rec2Desc": "We develop and deploy custom predictive models to optimize decision-making.", "rec2Link": "https://offerings.onedatasoftware.com/aws-machine-learning-solutions/",
-      "rec3Title": "Cloudops:", "rec3Desc": "We automate and optimize your cloud operations to ensure high performance and cost control.", "rec3Link": "https://offerings.onedatasoftware.com/aws-cloud-ops-governance/"
-    },
-    "transforming": { 
-      "id": "transforming",
-      "class": "🌟 TRANSFORMANDO", 
-      "action": "Strategic Innovation", 
-      "desc": "You operate as leaders in technological innovation with AI. The focus should remain on continuous optimization, exploring complex Agentic AI, and maximizing enterprise-wide ROI.",
-      "rec1Title": "AI Agent:", "rec1Desc": "We develop autonomous agents capable of executing complex workflows and interacting with your enterprise systems.", "rec1Link": "https://offerings.onedatasoftware.com/aws-ai-agent/",
-      "rec2Title": "Internet of Things (IoT):", "rec2Desc": "We connect your IoT devices with your AI systems for advanced real-time predictive analysis.", "rec2Link": "https://offerings.onedatasoftware.com/aws-iot-solutions/",
-      "rec3Title": "Managed Service Partner:", "rec3Desc": "Continuous architectural support and strategic evolution by fully delegating administration to our experts.", "rec3Link": "mailto:contact@onedatasoftware.com"
-    }
+"res": {
+  "exploring": {
+    "class": "🔍 EXPLORING",
+    "action": "Discovery & Foundations",
+    "desc": "You are in the initial stages of digital maturity. Before implementing Artificial Intelligence, it is fundamental to modernize your core infrastructure, secure your environments, and build a strong cloud culture.",
+    "rec1Title": "AWS Well-Architected Framework",
+    "rec1Link": "https://offerings.onedatasoftware.com/aws-well-architected-framework/",
+    "rec1Desc": "You need to evaluate and optimize your current architectures. This framework ensures your workloads operate securely, efficiently, and cost-effectively before attempting to scale with new technologies.",
+    "rec2Title": "AWS Data Migration",
+    "rec2Link": "https://offerings.onedatasoftware.com/aws-data-migration/",
+    "rec2Desc": "It is vital to move away from rigid on-premises infrastructure. Migrating to the cloud will give you the flexibility, storage, and compute capacity needed to support future AI initiatives.",
+    "rec3Title": "AWS Security",
+    "rec3Link": "https://offerings.onedatasoftware.com/aws-security/",
+    "rec3Desc": "The cloud requires new security paradigms. Implementing a robust security posture is the mandatory first step to protect your company's data and earn your customers' trust."
   },
+  "adopting": {
+    "class": "🚀 ADOPTING",
+    "action": "Guided Implementation",
+    "desc": "You have taken solid steps towards technological adoption. The goal now is to structure these initiatives, build reliable data repositories, and launch secure Proofs of Concept (POC).",
+    "rec1Title": "AWS Data Analytics",
+    "rec1Link": "https://offerings.onedatasoftware.com/aws-data-analytics/",
+    "rec1Desc": "AI does not work without clean data. You need to centralize and structure your information so that future models consume reliable, accessible data free of organizational silos.",
+    "rec2Title": "AWS Generative AI Services",
+    "rec2Link": "https://offerings.onedatasoftware.com/aws-generative-ai-services/",
+    "rec2Desc": "We recommend starting with an agile use case. Implementing a Generative AI POC will allow you to demonstrate short-term value and ROI to your stakeholders without operational risk.",
+    "rec3Title": "AWS HIPAA & Compliances",
+    "rec3Link": "https://offerings.onedatasoftware.com/aws-hipaa/",
+    "rec3Desc": "Establishing privacy rules is indispensable. You need a strict compliance framework right now to ensure that your early AI initiatives meet all the regulations of your specific industry."
+  },
+  "implementing": {
+    "class": "⚙️ IMPLEMENTING",
+    "action": "Optimization & Scaling",
+    "desc": "You have a prominent level of maturity with successful POCs. The strategic priority is to take these solutions to massive production, automate operations, and develop proprietary predictive models.",
+    "rec1Title": "Generative AI at Scale",
+    "rec1Link": "https://offerings.onedatasoftware.com/aws-generative-ai-services/",
+    "rec1Desc": "Your teams need enterprise-grade tools. Integrating Generative AI into your daily workflows will transform productivity, content creation, and customer service efficiency.",
+    "rec2Title": "AWS Machine Learning Solutions",
+    "rec2Link": "https://offerings.onedatasoftware.com/aws-machine-learning-solutions/",
+    "rec2Desc": "To stop being reactive, you need models trained on your own business context. This will allow you to anticipate demand, detect operational anomalies, and make truly predictive decisions.",
+    "rec3Title": "AWS CloudOps & Governance",
+    "rec3Link": "https://offerings.onedatasoftware.com/aws-cloud-ops-governance/",
+    "rec3Desc": "Scaling AI solutions brings complex infrastructure challenges. It is vital to implement operational automation (CloudOps) to maintain high performance and centrally control cloud costs."
+  },
+  "transforming": {
+    "class": "🌟 TRANSFORMING",
+    "action": "Continuous Innovation & Leadership",
+    "desc": "Your organization is a leader in technological adoption. The focus must now be on disruptive innovation, orchestrating autonomous systems, and connecting the physical world with the advanced digital ecosystem.",
+    "rec1Title": "AWS AI Agents",
+    "rec1Link": "https://offerings.onedatasoftware.com/aws-ai-agent/",
+    "rec1Desc": "To maintain your competitive edge, you must go beyond basic virtual assistants. You need to implement AI agents capable of reasoning, interacting with your APIs, and executing complex workflows autonomously.",
+    "rec2Title": "AWS IoT Solutions",
+    "rec2Link": "https://offerings.onedatasoftware.com/aws-iot-solutions/",
+    "rec2Desc": "True transformation happens when connecting the physical world. Integrating IoT will allow you to capture real-time data from your field operations to feed and retrain even more sophisticated AI models.",
+    "rec3Title": "Advanced Strategic Consulting",
+    "rec3Link": "mailto:contact@onedatasoftware.com",
+    "rec3Desc": "Upon reaching this level of maturity, business challenges become unique. You need specialized architectural guidance from OneData to monetize your Data and AI assets, creating brand new revenue streams."
+  }
+},
   "questions": [
     {
       "id": "Q1", "dimension": "Business", "title": "Generative AI Use Case Identification", "text": "Does your organization have guidelines to identify and prioritize use cases that could benefit from Generative AI or Agentic AI capabilities?",
