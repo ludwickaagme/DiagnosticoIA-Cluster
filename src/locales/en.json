@@ -69,6 +69,12 @@
   "implementationDesc2": "The next step is to transform these insights into a clear roadmap that enables structured progress toward implementing AI-driven solutions.",
   "implementationDesc3": "Our team supports organizations in defining, designing, and implementing these initiatives within enterprise cloud environments.",
   "contactText": "To learn how to implement these initiatives in your organization, contact our team at:",
+
+  "cluster": {
+    "member": "Cluster Member",
+    "notMember": "Not a Cluster Member",
+    "label": "Cluster"
+  },
   
   "btnContactTeam": "Contact the team",
   "riskHigh": "High Imbalance",
@@ -96,6 +102,8 @@
   "awsIotTransformDesc": "Integration of the physical world with advanced digital ecosystems.",
   "advancedConsultingDesc": "Specialized strategic guidance for monetizing Data and AI assets.",
 
+"aiDiagnosisResult": "Your AI maturity result is:",
+  
   "dashboard": {
     "mapTitle": "Generative AI Maturity Map",
     "orgBalanceTitle": "Organizational Balance Level",
@@ -173,6 +181,8 @@
       "rec3Desc": "Upon reaching this level of maturity, business challenges become unique. You need specialized architectural guidance from OneData to monetize your Data and AI assets, creating brand new revenue streams."
     }
   },
+  "internationalPresence": "Mexico · USA · Canada · India · Sri Lanka",
+
 "footer": {
   "presence": "International Presence",
   "office": "Mexico Office",

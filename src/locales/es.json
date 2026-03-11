@@ -51,7 +51,7 @@
   "pdfCtaTitle": "Potencie su futuro con Inteligencia Artificial",
   "pdfCta": "Conozca cómo podemos ayudarle a escalar estas iniciativas. Contáctenos:",
   "btnContact": "contact@onedatasoftware.com",
-  
+ 
   "reportTitle": "Diagnóstico de Madurez en IA Generativa",
   "reportSubtitle": "Evaluación de Preparación para IA",
   "dimensionBreakdown": "Desglose de Dimensiones",
@@ -101,6 +101,14 @@
   "aiAgentTransformDesc": "Orquestación de sistemas autónomos impulsados por IA.",
   "awsIotTransformDesc": "Integración del mundo físico con ecosistemas digitales avanzados.",
   "awsConsultingTransformDesc": "Acompañamiento arquitectónico especializado para monetizar activos de datos e IA.",
+
+  "aiDiagnosisResult": "El resultado de su diagnóstico de IA es:",
+
+  "cluster": {
+    "member": "Miembro del Clúster",
+    "notMember": "No miembro del Clúster",
+    "label": "Clúster:"
+  },
 
   "dashboard": {
     "mapTitle": "Mapa de Madurez en IA Generativa",
@@ -179,6 +187,10 @@
       "rec3Desc": "Al llegar a este nivel de madurez, los retos de negocio son únicos. Necesitas acompañamiento arquitectónico especializado de OneData para monetizar tus activos de datos e IA, creando nuevas líneas de ingresos."
     }
   },
+
+ "internationalPresence": "México · EE.UU. · Canadá · India · Sri Lanka",
+
+  
 "footer": {
   "presence": "Presencia Internacional",
   "office": "Oficina México",
@@ -318,4 +330,7 @@
       ]
     }
   ]
+
+  
 }
+

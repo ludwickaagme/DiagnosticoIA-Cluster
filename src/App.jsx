@@ -37,9 +37,6 @@ const HeroLogos = ({ variant = "cluster", theme = "dark" }) => {
       padding: "20px 24px"
     }}
   >
-
-    {variant === "cluster" ? (
-      <>
         {/* IZQUIERDA AWS */}
         <div style={{ justifySelf: "start" }}>
           <img
@@ -75,40 +72,7 @@ const HeroLogos = ({ variant = "cluster", theme = "dark" }) => {
             }}
           />
         </div>
-      </>
-    ) : (
-      <>
-        {/* IZQUIERDA ONEDATA */}
-        <div style={{ justifySelf: "start" }}>
-          <img
-            src={theme === "light" ? logo : onedataWhite}
-            alt="OneData"
-            style={{
-              height: "clamp(32px, 4vw, 50px)",
-              maxWidth: "260px",
-              width: "100%",
-              objectFit: "contain"
-            }}
-          />
-        </div>
-
-        {/* CENTRO vacío */}
-        <div />
-
-        {/* DERECHA AWS */}
-        <div style={{ justifySelf: "end" }}>
-          <img
-            src={awsWhite}
-            alt="AWS"
-            style={{
-              height: "clamp(34px, 4.5vw, 52px)",
-              maxWidth: "90px",
-              objectFit: "contain"
-            }}
-          />
-        </div>
-      </>
-    )}
+    )
 
   </div>);
 };
@@ -121,7 +85,8 @@ export default function App() {
 
   const [hasStarted, setHasStarted] = useState(false);
   const [userInfo, setUserInfo] = useState({
-    nombre: '', organizacion: '', correo: '', telefono: '', rol: '', pais: '', fecha: new Date().toISOString().split('T')[0]
+    nombre: '', organizacion: '', correo: '', telefono: '', rol: '', pais: '',   clusterMember: '',
+ fecha: new Date().toISOString().split('T')[0]
   });
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -305,11 +270,14 @@ const goToNextQuestion = () => {
       ? { text: t('riskModerate'), color: "#ea580c" } 
       : { text: t('riskBalanced'), color: "#16a34a" };
 
-    let levelKey =
-      totalPercentage <= 40 ? "exploring"
-      : totalPercentage <= 60 ? "adopting"
-      : totalPercentage <= 80 ? "implementing"
-      : "transforming";
+   const maturityLevels = [
+  { key: "exploring", max: 25 },
+  { key: "adopting", max: 50 },
+  { key: "implementing", max: 75 },
+  { key: "transforming", max: 100 }
+];
+
+const levelKey = maturityLevels.find(l => totalPercentage <= l.max).key;
 
     const rawLevelData = t(`res.${levelKey}`, { returnObjects: true });
     const safeLevelData = (typeof rawLevelData === 'object' && rawLevelData !== null) ? rawLevelData : {};
@@ -336,11 +304,11 @@ const goToNextQuestion = () => {
 
   if (!hasStarted) {
 const isFormValid =
-  isValidText(userInfo.nombre, 18) &&
-  isValidText(userInfo.organizacion, 25) &&
+  isValidText(userInfo.nombre, 30) &&
+  isValidText(userInfo.organizacion, 35) &&
   isValidEmail(userInfo.correo) &&
   isValidPhone(userInfo.telefono) &&
-  isValidText(userInfo.rol, 15) &&
+  isValidText(userInfo.rol, 30) &&
   (!brandConfig.showCluster || userInfo.clusterMember !== '');
   userInfo.pais.trim() !== '';
       return (
@@ -385,7 +353,7 @@ const isFormValid =
         <input
           type="text"
           name="nombre"
-          maxLength={18}
+          maxLength={30}
           pattern="[A-Za-zÀ-ÿ\s]+"
           value={userInfo.nombre}
           onChange={handleUserInputChange}
@@ -402,7 +370,7 @@ const isFormValid =
         <input
           type="text"
           name="organizacion"
-          maxLength={25}
+          maxLength={35}
           value={userInfo.organizacion}
           onChange={handleUserInputChange}
           placeholder={t('phCompany')}
@@ -454,7 +422,7 @@ const isFormValid =
         <input
           type="text"
           name="rol"
-          maxLength={15}
+          maxLength={30}
           value={userInfo.rol}
           onChange={handleUserInputChange}
           placeholder={t('phRole')}
@@ -578,7 +546,10 @@ const isFormValid =
                     <h4 style={{ margin: '0 0 5px 0', color: '#64748b', fontSize: '0.85rem', textTransform: 'uppercase' }}>{t('dashEvalOf')}</h4>
                     <p style={{ margin: '0 0 4px 0', fontSize: '1.4rem', fontWeight: 800, color: oneDataDarkBlue }}>{userInfo.nombre}</p>
                     <p style={{ margin: 0, fontSize: '1rem', color: oneDataBrightBlue, fontWeight: 600 }}>{userInfo.rol} <span style={{color: '#94a3b8', fontWeight: 400}}>| {userInfo.organizacion}</span></p>
-                    <p style={{ margin: '4px 0 0 0', color: awsGray, fontSize: '0.85rem' }}>{userInfo.pais} • {userInfo.fecha}</p>
+                    <p style={{ margin: '4px 0 0 0', color: awsGray, fontSize: '0.85rem' }}>{userInfo.pais} • {userInfo.fecha} {" • "}
+      {userInfo.clusterMember === "true"
+        ? t("cluster.member")
+        : t("cluster.notMember")}</p>
                   </div>
                   <div className="evaluation-score">
                     <div className="score-gauge-container"> 
@@ -612,15 +583,35 @@ const isFormValid =
                   </div>
 
                   <div style={{ marginTop: "20px", maxWidth: "420px", marginLeft: "auto", marginRight: "auto" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", fontWeight: "600", color: "#475569" }}>
-                      <span>{t("dashboard.levels.exploring")}</span>
+<div style={{
+  display: "grid",
+  gridTemplateColumns: "repeat(4,1fr)",
+  textAlign: "center",
+  fontSize: "12px",
+  fontWeight: "600",
+  color: "#475569",
+  marginBottom: "4px"
+}}>                      <span>{t("dashboard.levels.exploring")}</span>
                       <span>{t("dashboard.levels.adopting")}</span>
                       <span>{t("dashboard.levels.implementing")}</span>
                       <span>{t("dashboard.levels.transforming")}</span>
                     </div>
                     <div style={{ position: "relative", height: "8px", background: "#e2e8f0", borderRadius: "4px", marginTop: "8px" }}>
+                      
                       <div style={{ position: "absolute", height: "8px", background: "#3533cd", width: `${results.totalPercentage}%`, borderRadius: "4px" }}></div>
+                   
                     </div>
+                    <p style={{
+  marginTop:"14px",
+  textAlign:"center",
+  fontWeight:"700",
+  color:"#1e293b",
+  fontSize:"14px"
+}}>
+
+  {t("aiDiagnosisResult")} 
+<span>{results.levelData?.class}</span>
+</p>
                   </div>
                 </div>
 
@@ -741,11 +732,10 @@ const isFormValid =
                         <a href="mailto:contact@onedatasoftware.com" style={{ display: 'inline-block', padding: '10px 26px', backgroundColor: '#3533cd', color: '#ffffff', textDecoration: 'none', borderRadius: '6px', fontWeight: '600' }}>{t('btnContactTeam')}</a>
                         
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "30px", marginTop: "45px", flexWrap: "wrap" }}>
-                          {brandConfig.showCluster && (
-                            <img src={assets.cluster} alt="Cluster" style={{ height: "45px", objectFit: "contain" }} />
-                          )}
-                          <img src={assets.onedata} alt="OneData" style={{ height: "50px", objectFit: "contain" }} />
-                          <img src={assets.aws} alt="AWS" style={{ height: "45px", objectFit: "contain" }} />
+                         <img src={assets.aws} alt="AWS" style={{ height: "45px", objectFit: "contain" }} />
+                          <img src={assets.cluster} alt="Cluster" style={{ height: "50px", objectFit: "contain" }} />
+                          <img src={assets.onedata} alt="OneData" style={{ height: "45px", objectFit: "contain" }} />
+                          
                         </div>
                      </div>
                    </div>
@@ -773,15 +763,13 @@ const isFormValid =
           marginBottom: "20px"
         }}>
           <div style={{ justifySelf: "start" }}>
-            {brandConfig.showCluster && (
-              <img src={assets.cluster} alt="Cluster" style={{ height: "45px" }} />
-            )}
+            <img src={assets.aws} alt="AWS" style={{ height: "40px" }} />     
           </div>
           <div style={{ justifySelf: "center" }}>
-            <img src={assets.onedata} alt="OneData" style={{ height: "55px" }} />
+            <img src={assets.cluster} alt="Cluster" style={{ height: "50px", marginRight: "35px" }} />
           </div>
           <div style={{ justifySelf: "end" }}>
-            <img src={assets.aws} alt="AWS" style={{ height: "45px" }} />
+          <img src={assets.onedata} alt="OneData" style={{ height: "35px" }} />
           </div>
         </div>
 
@@ -816,18 +804,32 @@ const isFormValid =
             textAlign:"center"
           }}>
             {t('dashEvalOf')} <strong>{userInfo.nombre}</strong> | {userInfo.organizacion}<br/>
-            Fecha: {userInfo.fecha}
+            Fecha: {userInfo.fecha}  <br/>
+    {userInfo.clusterMember === "true"
+      ? t("cluster.member")
+      : t("cluster.notMember")}
           </div>
 
-                <div className="radar-container print-avoid-break" style={{ padding:"20px", marginTop:"10px", marginBottom:"25px", border:"1px solid #e2e8f0", borderRadius:"10px" }}>
-                  <h3 style={{ fontSize: "1.2rem", fontWeight: "800", letterSpacing: "0.5px", textTransform: "uppercase", marginTop: "10px", marginBottom: "20px", color:"#0f172a", textAlign: "center" }}>
+<div className="radar-container print-avoid-break" style={{
+  padding:"25px",
+  marginTop:"12px",
+  marginBottom:"28px",
+  border:"1px solid #e2e8f0",
+  borderRadius:"10px"
+}}>                  <h3 style={{ fontSize: "1.2rem", fontWeight: "800", letterSpacing: "0.5px", textTransform: "uppercase", marginTop: "10px", marginBottom: "20px", color:"#0f172a", textAlign: "center" }}>
                     {t("dashboard.mapTitle")}
                   </h3>
                   <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                    <RadarChart width={500} height={300} cx="50%" cy="50%" outerRadius="80%" data={radarData}>
-                      <PolarGrid />
-                      <PolarAngleAxis dataKey="dimension" tick={{fill: '#475569', fontSize: 10, fontWeight: 600}} />
-                      <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{fill: '#94a3b8', fontSize: 8}} />
+<RadarChart width={520} height={330} cx="50%" cy="50%" outerRadius="90%" data={radarData}>                      <PolarGrid />
+<PolarAngleAxis
+  dataKey="dimension"
+  tick={{ fill: '#334155', fontSize: 11, fontWeight: 600 }}
+/>                      
+<PolarRadiusAxis
+  angle={30}
+  domain={[0, 100]}
+  tick={{ fill: '#94a3b8', fontSize: 9 }}
+/>
                       <Radar name="Madurez" dataKey="value" stroke={scoreColor} fill={scoreColor} fillOpacity={0.4} isAnimationActive={false} />
                     </RadarChart>
                   </div>
@@ -842,6 +844,18 @@ const isFormValid =
                     <div style={{ position: "relative", height: "8px", background: "#e2e8f0", borderRadius: "4px", marginTop: "8px" }}>
                       <div style={{ position: "absolute", height: "8px", background: "#3533cd", width: `${results.totalPercentage}%`, borderRadius: "4px" }}></div>
                     </div>
+                    <p style={{
+  marginTop: "14px",
+  textAlign: "center",
+  fontWeight: "700",
+  color: "#1e293b",
+  fontSize: "13px"
+}}>
+  {t("aiDiagnosisResult")}{" "}
+  <span style={{ color: scoreColor }}>
+    {results.levelData?.class}
+  </span>
+</p>
                   </div>
                 </div>
 
@@ -951,7 +965,7 @@ const isFormValid =
                   </div>
                 </div>
 
-                {!brandConfig.showCluster && (
+                {brandConfig.showStrategicBenefits && (
                 <div className="print-benefits-section print-avoid-break">
                   <div className="print-section-divider"></div>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: '700', letterSpacing: '0.5px', textTransform: 'uppercase', color: '#0f172a', marginBottom: '0.8rem' }}>{t('strategicBenefits')}</h3>
@@ -1033,20 +1047,18 @@ const isFormValid =
                       </div>
                     </div>
 
-                    <div style={{
-                      display: "flex",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
-                      width: "100%",
-                      paddingTop: "20px",
-                      borderTop: "1px solid #cbd5e1"
-                    }}>
+<div style={{
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
+  marginTop: "45px"
+}}>
                       
-                      {brandConfig?.showCluster && (
-                        <img src={assets.cluster} alt="Cluster" style={{ height: "45px", objectFit: "contain" }}/>
-                      )}
-                      <img src={assets.onedata} alt="OneData" style={{ height: "55px", objectFit: "contain" }}/>
                       <img src={assets.aws} alt="AWS" style={{ height: "45px", objectFit: "contain" }}/>
+                    <img src={assets.cluster} alt="Cluster" style={{ height: "50px", objectFit: "contain" }}/>
+                  <img src={assets.onedata} alt="OneData" style={{ height: "35px", objectFit: "contain" }}/>
+                      
                       
                     </div>
                   </div>
@@ -1064,7 +1076,7 @@ const isFormValid =
 
     <div className="footer-column">
       <h4>🌎 {t("footer.presence")}</h4>
-      <p>México · USA · Canadá · India · Sri Lanka</p>
+      <p>{t('internationalPresence')}</p>
     </div>
 
     <div className="footer-column">
