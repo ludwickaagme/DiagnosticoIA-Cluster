@@ -165,6 +165,14 @@ const isValidText = (text, max) => {
     }
   }, [isFinished]);
 
+   useEffect(() => {
+
+  if (isFinished) {
+    saveAssessment();
+  }
+
+}, [isFinished]);
+
   const oneDataDarkBlue = '#000'; 
   const oneDataBrightBlue = '#3533cd'; 
   const awsOrange = '#ff9900';
@@ -317,6 +325,51 @@ const goToNextQuestion = () => {
     return {
       totalPoints, totalPercentage, dimensionsScore, levelKey, levelData: safeLevelData, lowestDimension, strongestDimension, riskGap, riskLabel
     };
+  };
+
+  const validateEmailAssessment = async () => {
+
+  const response = await fetch(
+    "https://teseo-websites-cluster-backend-39095183567.us-central1.run.app/api/assessment/validate",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        correo: userInfo.correo
+      })
+    }
+  );
+
+  const data = await response.json();
+
+  if (!data.allowed) {
+    alert(data.message);
+    return false;
+  }
+
+  return true;
+};
+
+  const saveAssessment = async () => {
+
+    const results = calculateResults();
+
+    const payload = {
+      user: userInfo,
+      answers: answers,
+      results: results
+    };
+
+    await fetch("https://teseo-websites-cluster-backend-39095183567.us-central1.run.app/api/assessment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
   };
 
   const floatingControls = (
@@ -535,9 +588,11 @@ const isFormValid =
     );
   }
 
+ 
+
   if (isFinished) {
     const results = calculateResults();
-      
+   
     const dimensionBased = tacticalOfferings[results.lowestDimension] || [];
     const levelBased = levelStrategicBoost[results.levelKey] || [];
 
