@@ -1081,7 +1081,7 @@ const isFormValid =
                       letterSpacing: "1px",
                       textTransform: "uppercase"
                     }}>
-                      OneData Software Solutions
+                     Clúster de Tecnologías Digitales de Querétaro
                     </div>
 
                     <div style={{
@@ -1090,25 +1090,44 @@ const isFormValid =
                       marginBottom: "30px",
                       lineHeight: "1.6"
                     }}>
-                      <div style={{ display: "table-cell", textAlign: "left", width: "50%", verticalAlign: "top" }}>
-                        Av Armando Birlaín Shaffler No.2001<br/>
-                        Centro Sur, Piso 14<br/>
-                        Santiago de Querétaro, México
-                      </div>
-                      <div style={{ display: "table-cell", textAlign: "right", width: "50%", verticalAlign: "top" }}>
-                        contact@onedatasoftware.com<br/>
-                        +52 442 403 7629<br/>
-                        © {new Date().getFullYear()} OneData
-                      </div>
+                      <div style={{ 
+                        display: "table-cell", 
+                        textAlign: "left", 
+                        width: "50%", 
+                        verticalAlign: "top" }}>
+                     Vórtice ITech Park, Anillo Vial III<br/>
+                     Ote. #174, Col. El Carmen<br/>
+                     76246 Saldarriaga, Qro.
+                  </div>
+                      <div style={{ 
+                        display: "table-cell", 
+                        textAlign: "right", 
+                        width: "50%", 
+                        verticalAlign: "top" }}>
+                      vinculacion@clustertd.com<br/>
+                       +52 442 290 4691<br/>
+                    © {new Date().getFullYear()} Clúster de Tecnologías Digitales de Querétaro
+      </div>
                     </div>
+
+
+
+ <div style={{
+  width: "100%",
+  height: "2px",
+  background: "#3533cd",
+  marginBottom: "10px"
+}}/>
 
 <div style={{
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  marginTop: "45px"
+  marginTop: "40px"
 }}>
+
+
                       
                       <img src={assets.aws} alt="AWS" style={{ height: "45px", objectFit: "contain" }}/>
                     <img src={assets.cluster} alt="Cluster" style={{ height: "50px", objectFit: "contain" }}/>
@@ -1129,29 +1148,23 @@ const isFormValid =
       <footer className="main-footer no-print">
   <div className="footer-container">
 
-    <div className="footer-column">
-      <h4>🌎 {t("footer.presence")}</h4>
-      <p>{t('internationalPresence')}</p>
-    </div>
-
-    <div className="footer-column">
+      <div className="footer-column">
       <h4>📍 {t("footer.office")}</h4>
-      <p>Av Armando Birlaín Shaffler No.2001</p>
-      <p>Centro Sur, Piso 14, Corporativo 2</p>
-      <p>Santiago de Querétaro, Qro, México</p>
+      <p>Vórtice ITech Park, Anillo Vial III Ote.</p>
+      <p>#174, Col. El Carmen, 76246</p>
+      <p>Saldarriaga, Qro., México</p>
     </div>
 
     <div className="footer-column">
       <h4>📞 {t("footer.contact")}</h4>
-      <p>☎ +52 442 403 7629</p>
-      <p>☎ +52 446 144 3375</p>
-      <p>✉ contact@onedatasoftware.com</p>
+      <p>☎ +52 442 290 4691</p>
+      <p>✉ vinculacion@clustertd.com</p>
     </div>
 
   </div>
 
   <div className="footer-bottom">
-    © {new Date().getFullYear()} OneData Software Solutions. {t("footer.rights")}
+    © {new Date().getFullYear()} Clúster de Tecnologías Digitales de Querétaro. {t("footer.rights")}
   </div>
 </footer>
 

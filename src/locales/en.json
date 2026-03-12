@@ -184,9 +184,8 @@
   "internationalPresence": "Mexico · USA · Canada · India · Sri Lanka",
 
 "footer": {
-  "presence": "International Presence",
-  "office": "Mexico Office",
-  "contact": "Business Contact",
+  "office": "Office",
+  "contact": "Contact",
   "rights": "All Rights Reserved."
 },
   "questions": [

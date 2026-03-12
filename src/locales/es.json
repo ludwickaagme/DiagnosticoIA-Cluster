@@ -192,9 +192,8 @@
 
   
 "footer": {
-  "presence": "Presencia Internacional",
-  "office": "Oficina México",
-  "contact": "Contacto Comercial",
+  "office": "Oficina",
+  "contact": "Contacto",
   "rights": "Todos los derechos reservados."
 },
 

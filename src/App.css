@@ -234,34 +234,29 @@ h1, h2, h3, h4, p {
   color: #ffffff; 
   flex-shrink: 0; 
   margin-top: auto; 
-  padding: 60px 40px 30px; 
+  padding: 60px 80px 30px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-.footer-container { 
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 60px; 
-  max-width: 1200px; 
-  margin: 0 auto 30px auto; 
+.footer-column:first-child {
+  justify-self: start;
 }
 
-.footer-column h4 { 
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #5b6cff; 
+.footer-column:last-child {
+  justify-self: end;
+  text-align: right;
 }
-
-.footer-column p { 
-  margin: 4px 0; 
-  color: #cbd5e1;
-  font-size: 0.95rem; 
-  transition: color 0.2s ease; 
-}
-
-.footer-column p:hover {
-  color: #ffffff;
-  cursor: pointer;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .footer-bottom { 
