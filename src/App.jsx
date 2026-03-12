@@ -491,7 +491,7 @@ const isFormValid =
       fontWeight: '700',
       fontSize: '0.9rem'
     }}>
-      ¿Eres miembro del Cluster?
+{t("cluster.memberQuestion")}
     </label>
 
     <select
@@ -507,9 +507,9 @@ const isFormValid =
         cursor: 'pointer'
       }}
     >
-      <option value="">Selecciona una opción...</option>
-      <option value="true">Sí</option>
-      <option value="false">No</option>
+     <option value="">{t("cluster.selectOption")}</option>
+<option value="true">{t("common.yes")}</option>
+<option value="false">{t("common.no")}</option>
     </select>
   </div>
 )}
@@ -601,7 +601,11 @@ const isFormValid =
                     <h4 style={{ margin: '0 0 5px 0', color: '#64748b', fontSize: '0.85rem', textTransform: 'uppercase' }}>{t('dashEvalOf')}</h4>
                     <p style={{ margin: '0 0 4px 0', fontSize: '1.4rem', fontWeight: 800, color: oneDataDarkBlue }}>{userInfo.nombre}</p>
                     <p style={{ margin: 0, fontSize: '1rem', color: oneDataBrightBlue, fontWeight: 600 }}>{userInfo.rol} <span style={{color: '#94a3b8', fontWeight: 400}}>| {userInfo.organizacion}</span></p>
-                    <p style={{ margin: '4px 0 0 0', color: awsGray, fontSize: '0.85rem' }}>{userInfo.pais} • {userInfo.fecha} {" • "}
+                    <p style={{ margin: '4px 0 0 0', color: awsGray, fontSize: '0.85rem' }}>{userInfo.pais} • {t("date")}: {new Date(userInfo.fecha).toLocaleDateString(i18n.language, {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+})} {" • "}
       {userInfo.clusterMember === "true"
         ? t("cluster.member")
         : t("cluster.notMember")}</p>
@@ -854,12 +858,16 @@ const isFormValid =
         
           <div style={{
             marginTop:"10px",
-            fontSize:"12px",
             color:"#64748b",
             textAlign:"center"
           }}>
             {t('dashEvalOf')} <strong>{userInfo.nombre}</strong> | {userInfo.organizacion}<br/>
-            Fecha: {userInfo.fecha}  <br/>
+            {t("date")}: {new Date(userInfo.fecha).toLocaleDateString(i18n.language, {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+})}<br/>
+
     {userInfo.clusterMember === "true"
       ? t("cluster.member")
       : t("cluster.notMember")}
@@ -1191,8 +1199,7 @@ const isFormValid =
           <div key={`prog-${currentQuestionIndex}`} style={{ flexShrink: 0, width: '100%', maxWidth: '1000px', alignSelf: 'center' }}>
             <div className="question-progress-header">
               <div className="dimension-label">
-                DIMENSIÓN: <span>{t(`dimNames.${currentQuestion.dimension}`)}</span>
-              </div>
+{t("dimension")}: <span>{t(`dimNames.${currentQuestion.dimension}`)}</span>              </div>
               <div className="progress-center">
                 <div className="progress-bar">
                   <div className="progress-fill" style={{ width: `${progressPercentage}%` }} />

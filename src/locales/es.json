@@ -104,13 +104,7 @@
 
   "aiDiagnosisResult": "El resultado de su diagnóstico de IA es:",
 
-  "cluster": {
-    "member": "Miembro del Clúster",
-    "notMember": "No miembro del Clúster",
-    "label": "Clúster:"
-  },
-
-  "dashboard": {
+    "dashboard": {
     "mapTitle": "Mapa de Madurez en IA Generativa",
     "orgBalanceTitle": "Nivel de equilibrio organizacional",
     "orgBalanceDesc": "La diferencia entre las dimensiones evaluadas indica que existen áreas con niveles de madurez desiguales. Atender estas brechas permitirá una adopción más estable y estratégica de iniciativas de IA.",
@@ -189,12 +183,25 @@
   },
 
  "internationalPresence": "México · EE.UU. · Canadá · India · Sri Lanka",
-
+"date": "Fecha",
+"dimension": "DIMENSIÓN", 
   
 "footer": {
   "office": "Oficina",
   "contact": "Contacto",
   "rights": "Todos los derechos reservados."
+},
+
+"cluster": {
+  "memberQuestion": "¿Eres miembro del Clúster?",
+  "selectOption": "Selecciona una opción...",
+  "member": "Miembro del Clúster",
+  "notMember": "No miembro del Clúster",
+  "label": "Clúster:"
+},
+"common": {
+  "yes": "Sí",
+  "no": "No"
 },
 
   "questions": [

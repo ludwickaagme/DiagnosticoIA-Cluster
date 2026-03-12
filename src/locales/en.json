@@ -70,11 +70,17 @@
   "implementationDesc3": "Our team supports organizations in defining, designing, and implementing these initiatives within enterprise cloud environments.",
   "contactText": "To learn how to implement these initiatives in your organization, contact our team at:",
 
-  "cluster": {
-    "member": "Cluster Member",
-    "notMember": "Not a Cluster Member",
-    "label": "Cluster"
-  },
+ "cluster": {
+  "memberQuestion": "Are you a Cluster member?",
+  "selectOption": "Select an option...",
+  "member": "Cluster Member",
+  "notMember": "Not a Cluster Member",
+  "label": "Cluster:"
+},
+"common": {
+  "yes": "Yes",
+  "no": "No"
+},
   
   "btnContactTeam": "Contact the team",
   "riskHigh": "High Imbalance",
@@ -182,6 +188,8 @@
     }
   },
   "internationalPresence": "Mexico · USA · Canada · India · Sri Lanka",
+  "date": "Date",
+  "dimension": "DIMENSION",
 
 "footer": {
   "office": "Office",
