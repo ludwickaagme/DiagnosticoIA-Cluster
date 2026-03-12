@@ -166,34 +166,56 @@ h1, h2, h3, h4, p {
 .question-text { animation: fadeIn 0.4s ease-out; }
 .options-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.option-card{
+  grid-column: span 2;
+}
+
+.options-container .option-card:nth-child(4){
+  grid-column:2 / span 2;
+}
+
+.options-container .option-card:nth-child(5){
+  grid-column:4 / span 2;
 }
 .option-card {
   background-color: var(--card-bg);
   border: 3px solid var(--card-border);
   border-radius: 20px;
-  padding: 20px;
-  padding-bottom: 45px; 
+  padding: 22px;
   cursor: pointer;
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   box-shadow: 0 4px 6px rgba(0,0,0,0.04);
   opacity: 0.75;
   transform: scale(0.97);
   text-align: left;
+  min-height: 190px;
 }
 .option-card:hover { transform: translateY(-5px) scale(1.02); border-color: var(--card-highlight); opacity: 1; }
 .option-card.selected { background-color: #fff; border-color: var(--card-highlight); box-shadow: 0 20px 25px -5px var(--card-glow); transform: scale(1.05); opacity: 1; }
-.option-label { position: absolute; bottom: 14px; right: 14px; font-size: 0.75rem; font-weight: 700; color: #fff; background-color: var(--card-highlight); padding: 4px 10px; border-radius: 12px; }
-.option-desc { line-height: 1.45; }
-.mobile-swipe-hint { display: none; }
+.option-label{
+  align-self:flex-end;
+  margin-top:auto;
+  font-size:0.75rem;
+  font-weight:700;
+  color:#fff;
+  background-color:var(--card-highlight);
+  padding:4px 10px;
+  border-radius:12px;
+}
+.option-desc{
+  margin-top:10px;
+  line-height:1.45;
+}.mobile-swipe-hint { display: none; }
 
 .radar-container {
   margin: 2rem auto;
@@ -218,7 +240,7 @@ h1, h2, h3, h4, p {
 .circle { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 1.2s ease-in-out; }
 .score-text-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 
-.dimensions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dimensions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
 .dimension-card { background: #fff; border: 1px solid #edf2f7; padding: 1rem; border-radius: 16px; }
 .dimension-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .progress-bar-modern { height: 100%; background: linear-gradient(90deg,#3533cd,#00d4ff); border-radius: 4px; transition: width 1.2s ease; }
